@@ -99,3 +99,38 @@
   font-family: "Hindi Madurai",sans-serif;
   font-size: 1.5rem;
 }
+
+
+.article{
+  margin-top: 100px;
+  padding: 20px 100px;
+}
+
+#about{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rem;
+  margin-bottom: 100px;
+}
+
+#about i{
+  font-size: 200px;
+  color: #6A0DAD;
+}
+
+.about-content{
+  width: 1000px;
+  text-align: center;
+}
+
+.about-content h2{
+  font-size: 40px;
+  color: #6A0DAD;
+  margin-bottom: 32px;
+}
+
+.about-content p{
+  font-size: 20px;
+  font-family: 'Hindi Madurai',sans-serif;
+}
