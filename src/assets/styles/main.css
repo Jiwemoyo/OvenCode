@@ -71,3 +71,20 @@
 #nav-bar a:hover::after {
     width: 100%; /* Los círculos llenan todo el ancho del enlace */
 }
+
+
+.content-hero h2{
+  color: #6A0DAD;
+  font-size: 4rem;
+}
+
+.content-hero{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content-hero p{
+  font-family: "Hindi Madurai",sans-serif;
+  font-size: 1.5rem;
+}
