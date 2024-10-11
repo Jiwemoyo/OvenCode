@@ -3,7 +3,7 @@ import React from 'react'
 export const Hero = () => {
   return (
     <section id='hero'>
-      <div className='content-hero'>
+      <div className='content'>
         <h2>Welcome to OvenCode</h2>
         <p>Aqui va el parrafo de hero pero es tan largo que no quiero escribirlo XD</p>
       </div>

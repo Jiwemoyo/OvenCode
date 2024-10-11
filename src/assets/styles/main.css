@@ -72,19 +72,30 @@
     width: 100%; /* Los círculos llenan todo el ancho del enlace */
 }
 
+#hero{
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px;
+  gap: 200px;
+}
 
-.content-hero h2{
+#hero video{
+  width: 40%;
+}
+.content h2{
   color: #6A0DAD;
   font-size: 4rem;
 }
 
-.content-hero{
+.content{
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.content-hero p{
+.content p{
   font-family: "Hindi Madurai",sans-serif;
   font-size: 1.5rem;
 }
