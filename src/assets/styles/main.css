@@ -134,3 +134,235 @@
   font-size: 20px;
   font-family: 'Hindi Madurai',sans-serif;
 }
+
+.article{
+  margin-top: 100px;
+  padding: 20px 100px;
+}
+
+#about{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20rem;
+margin-bottom: 100px;
+}
+
+#about i {
+font-size: 200px;
+color: #4A0A7F;
+}
+
+.about-content{
+width: 1000px;
+text-align: center;
+
+}
+
+.about-content h2{
+font-size: 40px;
+color: #4A0A7F;
+margin-bottom: 32px;
+}
+
+.about-content p{
+font-size: 20px;
+font-family: "Hind Madurai", sans-serif;
+}
+
+
+
+.parent {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(4, 1fr);
+gap: 8px;
+text-align: center;
+}
+
+.div1 {
+grid-column: span 3 / span 3;
+text-align: center;
+display: flex;
+flex-direction: column;
+gap: 32px;
+}
+
+.div1 h2{
+font-size: 40px;
+color: #4A0A7F;
+}
+.parent p{
+font-size: 20px;
+margin-top: 20px;
+}
+.parent strong{
+color: #4A0A7F;
+font-size: 20px;
+}
+.div2 {
+grid-column-start: 2;
+grid-row-start: 2;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.div2 i {
+font-size: 200px;
+color: #4A0A7F; 
+}
+
+.div3 {
+grid-column-start: 1;
+grid-row-start: 2;
+}
+
+.div4 {
+grid-row-start: 2;
+}
+
+
+.div6 {
+grid-column-start: 3;
+grid-row-start: 3;
+}
+
+.div7 {
+grid-column-start: 2;
+grid-row-start: 3;
+margin-top: 100px;
+}
+
+.div8 {
+grid-column: span 3 / span 3;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#contact {
+background-color: #4A0A7F;
+color: aliceblue;
+text-align: center;
+padding: 40px;
+}
+
+#contact h2 {
+font-size: 40px;
+}
+
+.form-group {
+margin-bottom: 15px;
+font-family: "Hind Madurai", sans-serif;
+}
+
+#form{
+margin-top: 30px;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+font-size: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+width: 50%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 16px;
+margin-top: 5px;
+}
+
+input[type="submit"] {
+background-color: #F6A44D;
+color: #4A0A7F;
+padding: 20px 50px;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+cursor: pointer;
+margin-top: 10px;
+transition: transform 0.3s;
+}
+
+input[type="submit"]:hover {
+transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+#header {
+    padding: 20px 20px;
+    flex-direction: column;
+}
+
+#nav-bar {
+    flex-direction: column;
+    gap: 10px;
+}
+
+#hero {
+    flex-direction: column;
+    padding: 20px 20px;
+    gap: 50px;
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+}
+
+.about-content {
+    width: 90%;
+}
+
+#about {
+    flex-direction: column;
+    gap: 50px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 80%; /* Aumentar el ancho de los inputs en dispositivos móviles */
+}
+
+input[type="submit"] {
+    padding: 15px 30px; 
+}
+
+#contact h2 {
+    font-size: 30px; 
+}
+}
+
+@media (max-width: 480px) {
+#header {
+    padding: 10px 10px;
+}
+
+#nav-bar a {
+    font-size: 1.2rem; 
+}
+
+#hero h1 {
+    font-size: 2rem; 
+}
+
+#about i {
+    font-size: 100px; 
+}
+
+.about-content h2 {
+    font-size: 30px; 
+}
+
+.content p {
+    font-size: 1.2rem; 
+}
+}

@@ -1,7 +1,70 @@
-import React from 'react'
+import React from "react";
 
 export const Services = () => {
   return (
-    <div>Services</div>
-  )
-}
+    <section id="services">
+      <div class="parent">
+        <div class="div1">
+          <h2>Our Services</h2>
+          <p>
+            At <span>OvenCode</span>, we offer a range of services designed to
+            help you create high-converting landing pages tailored to your
+            business needs. Our comprehensive solutions include:
+          </p>
+        </div>
+        <div class="div2">
+          <i class="fas fa-concierge-bell"></i>
+        </div>
+        <div class="div3">
+          <strong>Custom Landing Page Design:</strong>
+          <p>
+            We create visually stunning and user-friendly landing pages that
+            capture attention and engage visitors. Our designs are tailored to
+            reflect your brand identity and resonate with your target audience.
+          </p>
+        </div>
+        <div class="div4">
+          <strong>Conversion Rate Optimization:</strong>
+          <p>
+            Our team employs data-driven strategies to optimize your landing
+            pages for maximum conversion rates. We analyze user behavior, A/B
+            test different elements, and implement best practices to ensure your
+            page drives results.
+          </p>
+        </div>
+        <div class="div5">
+          <strong>Content Strategy and Copywriting:</strong>
+          <p>
+            Compelling content is key to keeping your visitors engaged. Our
+            skilled copywriters craft persuasive messaging that highlights your
+            value proposition and encourages users to take action.
+          </p>
+        </div>
+        <div class="div6">
+          <strong>Responsive Web Design:</strong>
+          <p>
+            With more users accessing websites on mobile devices, we ensure that
+            your landing pages are fully responsive and provide an optimal
+            experience across all screen sizes and devices.
+          </p>
+        </div>
+        <div class="div7">
+          <strong>Analytics and Performance Tracking:</strong>
+          <p>
+            We set up tracking and analytics to monitor your landing page
+            performance. Our reports provide valuable insights that help you
+            understand user behavior and make informed decisions for future
+            improvements.
+          </p>
+        </div>
+        <div class="div8">
+          <p>
+            At <span>OvenCode</span>, we are dedicated to helping you achieve
+            your business goals through expertly crafted landing pages. Let us
+            partner with you to create a powerful online presence that converts!
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
