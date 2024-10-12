@@ -84,8 +84,22 @@ div > strong{
 @media (max-width: 768px) {
   .parent{
     margin: 0;
+    padding: 0 20px;
+    width: 100%;
   }
   .div7{
     margin-top: 0;
+  }
+
+  .div3 ,.div4,.div5,.div6,.div7{
+    font-size: 16px;
+  }
+
+  .presentation ,.div8{
+    font-size: 18px
+  }
+
+  div > strong{
+    font-size: 24px ;
   }
 }
