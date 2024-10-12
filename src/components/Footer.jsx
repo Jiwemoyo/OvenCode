@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer id="footer">
+      <p>&copy; 2024 OvenCode. Todos los derechos reservados.</p>
+      <p>
+        <a href="#">Términos de Servicio</a> |
+        <a href="#">Política de Privacidad</a>
+      </p>
+    </footer>
+  );
+};

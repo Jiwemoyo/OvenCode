@@ -3,8 +3,8 @@ import React from "react";
 export const Services = () => {
   return (
     <section id="services">
-      <div class="parent">
-        <div class="div1">
+      <div className="parent">
+        <div className="div1">
           <h2>Our Services</h2>
           <p>
             At <span>OvenCode</span>, we offer a range of services designed to
@@ -12,10 +12,10 @@ export const Services = () => {
             business needs. Our comprehensive solutions include:
           </p>
         </div>
-        <div class="div2">
-          <i class="fas fa-concierge-bell"></i>
+        <div className="div2">
+          <i className="fas fa-concierge-bell"></i>
         </div>
-        <div class="div3">
+        <div className="div3">
           <strong>Custom Landing Page Design:</strong>
           <p>
             We create visually stunning and user-friendly landing pages that
@@ -23,7 +23,7 @@ export const Services = () => {
             reflect your brand identity and resonate with your target audience.
           </p>
         </div>
-        <div class="div4">
+        <div className="div4">
           <strong>Conversion Rate Optimization:</strong>
           <p>
             Our team employs data-driven strategies to optimize your landing
@@ -32,7 +32,7 @@ export const Services = () => {
             page drives results.
           </p>
         </div>
-        <div class="div5">
+        <div className="div5">
           <strong>Content Strategy and Copywriting:</strong>
           <p>
             Compelling content is key to keeping your visitors engaged. Our
@@ -40,7 +40,7 @@ export const Services = () => {
             value proposition and encourages users to take action.
           </p>
         </div>
-        <div class="div6">
+        <div className="div6">
           <strong>Responsive Web Design:</strong>
           <p>
             With more users accessing websites on mobile devices, we ensure that
@@ -48,7 +48,7 @@ export const Services = () => {
             experience across all screen sizes and devices.
           </p>
         </div>
-        <div class="div7">
+        <div className="div7">
           <strong>Analytics and Performance Tracking:</strong>
           <p>
             We set up tracking and analytics to monitor your landing page
@@ -57,7 +57,7 @@ export const Services = () => {
             improvements.
           </p>
         </div>
-        <div class="div8">
+        <div className="div8">
           <p>
             At <span>OvenCode</span>, we are dedicated to helping you achieve
             your business goals through expertly crafted landing pages. Let us
