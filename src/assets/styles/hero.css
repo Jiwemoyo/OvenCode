@@ -1,3 +1,4 @@
+/* Estilos para pantallas grandes (por defecto) */
 #hero {
   display: flex;
   margin-top: 100px;
@@ -8,7 +9,7 @@
 }
 
 #hero video {
-  width: 40%;
+  width: 700px;
 }
 
 .content h2 {
@@ -25,4 +26,31 @@
 .content p {
   font-family: var(--font-family-secondary);
   font-size: var(--font-size-medium);
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column; /* Cambiamos la dirección a columna */
+    justify-content: center;
+    gap: 40px; /* Reducimos el gap entre contenido y video */
+    padding: 20px;
+  }
+
+  #hero video {
+    width: 100%; /* Video ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .content {
+    align-items: center; /* Centramos el contenido */
+    text-align: center; /* Alineamos el texto al centro */
+  }
+
+  .content h2 {
+    font-size: var(--font-size-medium); /* Ajustamos el tamaño del texto */
+  }
+
+  .content p {
+    font-size: var(--font-size-small); /* Ajustamos el tamaño del texto */
+  }
 }
