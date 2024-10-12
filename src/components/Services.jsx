@@ -6,7 +6,7 @@ export const Services = () => {
       <div className="parent">
         <div className="div1">
           <h2>Our Services</h2>
-          <p>
+          <p className='presentation'>
             At <span>OvenCode</span>, we offer a range of services designed to
             help you create high-converting landing pages tailored to your
             business needs. Our comprehensive solutions include:
