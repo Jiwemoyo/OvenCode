@@ -1,5 +1,4 @@
-@import './main.css';
-
+/* Estilos para pantallas grandes (por defecto) */
 .article {
   margin-top: 100px;
   padding: 20px 100px;
@@ -9,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20rem;
+  gap: 10rem; /* Reducimos el gap */
   margin-bottom: 100px;
 }
 
@@ -19,8 +18,9 @@
 }
 
 .about-content {
-  width: 1000px;
-  text-align: center;
+  width: 100%; /* Expandimos el ancho del contenido */
+  max-width: 1200px; /* Máximo ancho similar al de Hero */
+  text-align: left; /* Alineamos el texto a la izquierda */
 }
 
 .about-content h2 {
@@ -32,33 +32,77 @@
 .about-content p {
   font-size: 20px;
   font-family: var(--font-family-secondary);
+  line-height: 1.6; /* Aumentamos la altura de línea para mejorar legibilidad */
 }
 
-#about {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20rem;
-  margin-bottom: 100px;
+/* Estilos para pantallas medianas */
+@media (max-width: 1024px) {
+  .about {
+    gap: 5rem; /* Reducimos más el gap */
+  }
+
+  .about i {
+    font-size: 150px; /* Tamaño reducido del ícono */
+  }
+
+  .about-content {
+    width: 90%; /* Ajustamos el ancho para pantallas medianas */
+  }
+
+  .about-content h2 {
+    font-size: 35px;
+  }
+
+  .about-content p {
+    font-size: 18px;
+  }
 }
 
-#about i {
-  font-size: 200px;
-  color: var(--color-secondary);
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .article{
+    padding: 0;
+    text-align: center;
+  }
+  .titleAbout{
+    text-align: center;
+  }
+
+  .about i {
+    font-size: 120px;
+  }
+
+  .about-content {
+    width: 100%;
+    padding: 0 20px;
+    text-align: justify; /* Justificamos el texto para un mejor aspecto */
+  }
+
+  .about-content h2 {
+    font-size: 30px;
+  }
+
+  .about-content p {
+    font-size: 16px;
+  }
 }
 
-.about-content {
-  width: 1000px;
-  text-align: center;
-}
+/* Estilos para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .about i {
+    font-size: 100px;
+  }
 
-.about-content h2 {
-  font-size: 40px;
-  color: var(--color-secondary);
-  margin-bottom: 32px;
-}
+  .about-content h2 {
+    font-size: 25px;
+  }
 
-.about-content p {
-  font-size: 20px;
-  font-family: var(--font-family-secondary);
+  .about-content p {
+    font-size: 14px;
+  }
 }

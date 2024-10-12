@@ -6,7 +6,7 @@ export const About = () => {
             <section className='about'>
                 <i className='fas fa-users'></i>
                 <div className="about-content">
-                    <h2 className="titleAbout">Our Services</h2>
+                    <h2 className="titleAbout">About us</h2>
                     <p>
                     At OvenCode, we are passionate about creating landing pages that not only look great but also drive results. Founded by a team of digital marketing experts and designers, our mission is to help businesses of all sizes enhance their online presence and achieve their goals.
                     We understand that a landing page is more than just a web page; it's a powerful tool that can make or break your marketing efforts. That's why we focus on crafting customized solutions tailored to your unique needs, combining stunning visuals with effective messaging and proven strategies.
