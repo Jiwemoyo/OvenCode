@@ -1,0 +1,24 @@
+@import './main.css';
+
+#footer {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  text-align: center;
+  padding: 20px 0;
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-small);
+}
+
+#footer p {
+  margin: 0;
+}
+
+#footer a {
+  color: #f6a44d;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}

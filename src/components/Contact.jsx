@@ -1,4 +1,4 @@
-import React from 'react'
+import '../assets/styles/contact.css'
 
 export const Contact = () => {
   return (

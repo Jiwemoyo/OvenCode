@@ -1,324 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --color-primary: #6a0dad;
+  --color-secondary: #4a0a7f;
+  --color-background: #fefefc;
+  --font-family-primary: "Montserrat", sans-serif;
+  --font-family-secondary: "Hind Madurai", sans-serif;
+  --font-size-large: 4rem;
+  --font-size-medium: 1.5rem;
+  --font-size-small: 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
-  font-family: sans-serif;
+  font-family: var(--font-family-secondary);
   scroll-behavior: smooth;
-  background-color: #fefefc;
+  background-color: var(--color-background);
 }
 
-h1,
-h2
-{
-  font-family: "Montserrat", sans-serif;
-  color: #6a0dad;
+h1, h2 {
+  font-family: var(--font-family-primary);
+  color: var(--color-primary);
 }
 
 span {
-  font-family: "Montserrat", sans-serif;
-  color: #6a0dad;
+  font-family: var(--font-family-primary);
+  color: var(--color-primary);
   font-weight: bolder;
-}
-
-#header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 100px;
-  box-shadow: 0 4px 10px rgba(106, 13, 173, 0.5);
-}
-
-.title {
-  display: flex;
-  align-items: center;
-}
-
-#header-img {
-  width: 80px;
-}
-
-#nav-bar {
-  display: flex;
-  gap: 30px;
-}
-
-#nav-bar a {
-  text-decoration: none;
-  font-family: "Hind Madurai", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  color: #6a0dad;
-  font-size: 1.5rem;
-  position: relative;
-  transition: color 0.3s;
-}
-
-/* Pseudo-elemento que creará los círculos */
-#nav-bar a::after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 10px;
-  background-image: radial-gradient(circle, #6a0dad 20%, transparent 20%);
-  background-size: 10px 10px;
-  position: absolute;
-  left: 0;
-  bottom: -5px; /* Coloca los círculos justo debajo del texto */
-  transition: width 0.5s ease;
-  overflow: hidden;
-}
-
-/* Al hacer hover, los círculos se expanden */
-#nav-bar a:hover::after {
-  width: 100%; /* Los círculos llenan todo el ancho del enlace */
-}
-
-#hero {
-  display: flex;
-  margin-top: 100px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 100px;
-  gap: 200px;
-}
-
-#hero video {
-  width: 40%;
-}
-.content h2 {
-  color: #6a0dad;
-  font-size: 4rem;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.content p {
-  font-family: "Hindi Madurai", sans-serif;
-  font-size: 1.5rem;
-}
-
-.article {
-  margin-top: 100px;
-  padding: 20px 100px;
-}
-
-.about {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20rem;
-  margin-bottom: 100px;
-}
-
-.about i {
-  font-size: 200px;
-  color: #6a0dad;
-}
-
-.about-content {
-  width: 1000px;
-  text-align: center;
-}
-
-.about-content h2 {
-  font-size: 40px;
-  color: #6a0dad;
-  margin-bottom: 32px;
-}
-
-.about-content p {
-  font-size: 20px;
-  font-family: "Hindi Madurai", sans-serif;
-}
-
-.article {
-  margin-top: 100px;
-  padding: 20px 100px;
-}
-
-#about {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20rem;
-  margin-bottom: 100px;
-}
-
-#about i {
-  font-size: 200px;
-  color: #4a0a7f;
-}
-
-.about-content {
-  width: 1000px;
-  text-align: center;
-}
-
-.about-content h2 {
-  font-size: 40px;
-  color: #4a0a7f;
-  margin-bottom: 32px;
-}
-
-.about-content p {
-  font-size: 20px;
-  font-family: "Hind Madurai", sans-serif;
-}
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 8px;
-  text-align: center;
-  padding: 20px 100px;
-}
-
-.div1 {
-  grid-column: span 3 / span 3;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.div1 h2 {
-  font-size: 40px;
-  color: #4a0a7f;
-}
-.parent p {
-  font-size: 20px;
-  margin-top: 20px;
-}
-.parent strong {
-  color: #4a0a7f;
-  font-size: 20px;
-}
-.div2 {
-  grid-column-start: 2;
-  grid-row-start: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.div2 i {
-  font-size: 200px;
-  color: #4a0a7f;
-}
-
-.div3 {
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.div4 {
-  grid-row-start: 2;
-}
-
-.div6 {
-  grid-column-start: 3;
-  grid-row-start: 3;
-}
-
-.div7 {
-  grid-column-start: 2;
-  grid-row-start: 3;
-  margin-top: 100px;
-}
-
-.div8 {
-  grid-column: span 3 / span 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#contact {
-  background-color: #4a0a7f;
-  color: aliceblue;
-  text-align: center;
-  padding: 40px;
-}
-
-#contact h2 {
-  font-size: 40px;
-  color: white;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  font-family: "Hind Madurai", sans-serif;
-}
-
-#form {
-  margin-top: 30px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 18px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-  width: 50%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  margin-top: 5px;
-}
-
-input[type="submit"] {
-  background-color: #f6a44d;
-  color: #4a0a7f;
-  padding: 20px 50px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: transform 0.3s;
-}
-
-input[type="submit"]:hover {
-  transform: scale(1.1);
-}
-
-#footer {
-  background-color: #4a0a7f; /* Mismo color que otros elementos */
-  color: #fefefc; /* Texto blanco */
-  text-align: center;
-  padding: 20px 0; /* Espaciado interno */
-  font-family: "Hind Madurai", sans-serif;
-  font-size: 1rem;
-}
-
-#footer p {
-  margin: 0;
-}
-
-#footer a {
-  color: #f6a44d; /* Color de enlace */
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-#footer a:hover {
-  text-decoration: underline;
 }

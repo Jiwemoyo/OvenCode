@@ -1,0 +1,73 @@
+@import './main.css';
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+  padding: 20px 100px;
+}
+
+.div1 {
+  grid-column: span 3 / span 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.div1 h2 {
+  font-size: 40px;
+  color: var(--color-secondary);
+}
+
+.parent p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.parent strong {
+  color: var(--color-secondary);
+  font-size: 20px;
+}
+
+.div2 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div2 i {
+  font-size: 200px;
+  color: var(--color-secondary);
+}
+
+.div3 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.div4 {
+  grid-row-start: 2;
+}
+
+.div6 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.div7 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  margin-top: 100px;
+}
+
+.div8 {
+  grid-column: span 3 / span 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

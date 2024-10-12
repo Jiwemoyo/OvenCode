@@ -1,4 +1,4 @@
-import React from "react";
+import '../assets/styles/services.css'
 
 export const Services = () => {
   return (

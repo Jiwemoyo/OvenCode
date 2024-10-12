@@ -1,0 +1,28 @@
+#hero {
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px;
+  gap: 200px;
+}
+
+#hero video {
+  width: 40%;
+}
+
+.content h2 {
+  color: var(--color-primary);
+  font-size: var(--font-size-large);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content p {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-medium);
+}

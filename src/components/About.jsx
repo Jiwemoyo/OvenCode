@@ -1,4 +1,4 @@
-import React from 'react'
+import '../assets/styles/about.css'
 
 export const About = () => {
     return (

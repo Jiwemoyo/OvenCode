@@ -1,0 +1,110 @@
+@import './main.css';
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  box-shadow: 0 4px 10px rgba(106, 13, 173, 0.5);
+  background-color: var(--color-background);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+#header-img {
+  width: 80px;
+}
+
+#nav-bar {
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+#nav-bar a {
+  text-decoration: none;
+  font-family: var(--font-family-secondary);
+  font-weight: 700;
+  font-style: normal;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  transition: color 0.3s;
+  position: relative;
+}
+
+/* Pseudo-elemento que creará los círculos */
+#nav-bar a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 10px;
+  background-image: radial-gradient(circle, var(--color-primary) 20%, transparent 20%);
+  background-size: 10px 10px;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.5s ease;
+  overflow: hidden;
+}
+
+/* Al hacer hover, los círculos se expanden */
+#nav-bar a:hover::after {
+  width: 100%;
+}
+
+#hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin: 3px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #header {
+    padding: 20px 50px;
+  }
+
+  #nav-bar {
+    gap: 20px;
+  }
+
+  #nav-bar a {
+    font-size: 1.2rem;
+  }
+
+  #hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  #header {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  #nav-bar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #header-img {
+    width: 60px;
+  }
+
+  #nav-bar a {
+    font-size: 1rem;
+  }
+}

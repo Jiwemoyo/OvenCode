@@ -1,0 +1,56 @@
+@import './main.css';
+
+#contact {
+  background-color: var(--color-secondary);
+  color: aliceblue;
+  text-align: center;
+  padding: 40px;
+}
+
+#contact h2 {
+  font-size: 40px;
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  font-family: var(--font-family-secondary);
+}
+
+#form {
+  margin-top: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+input[type="submit"] {
+  background-color: #f6a44d;
+  color: var(--color-secondary);
+  padding: 20px 50px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.3s;
+}
+
+input[type="submit"]:hover {
+  transform: scale(1.1);
+}

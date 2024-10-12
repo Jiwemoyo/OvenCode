@@ -1,4 +1,4 @@
-import React from "react";
+import '../assets/styles/header.css'
 
 export const Header = () => {
   return (
