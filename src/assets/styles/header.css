@@ -1,5 +1,4 @@
-@import './main.css';
-
+/* Header base */
 #header {
   display: flex;
   justify-content: space-between;
@@ -35,7 +34,6 @@
   position: relative;
 }
 
-/* Pseudo-elemento que creará los círculos */
 #nav-bar a::after {
   content: "";
   display: block;
@@ -50,61 +48,55 @@
   overflow: hidden;
 }
 
-/* Al hacer hover, los círculos se expanden */
 #nav-bar a:hover::after {
   width: 100%;
 }
 
-#hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
+/* Estilos para pantallas grandes */
+@media (min-width: 769px) {
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    box-shadow: 0 4px 10px rgba(106, 13, 173, 0.5);
+    background-color: var(--color-background);
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+  }
+
+  #nav-bar {
+    display: flex;
+    gap: 30px;
+    position: relative;
+  }
+
+  #nav-bar a {
+    font-size: 1.5rem;
+  }
 }
 
-.line {
-  width: 30px;
-  height: 3px;
-  background-color: var(--color-primary);
-  margin: 3px 0;
-}
-
-/* Media Queries */
+/* Estilos para pantallas pequeñas */
 @media (max-width: 768px) {
   #header {
-    padding: 20px 50px;
+    flex-direction: column; /* Colocamos el contenido en columna */
+    justify-content: center; /* Centrar el contenido */
+    padding: 20px;
   }
 
+  /* Colocamos el nav-bar debajo del título */
   #nav-bar {
-    gap: 20px;
-  }
-
-  #nav-bar a {
-    font-size: 1.2rem;
-  }
-
-  #hamburger {
     display: flex;
-  }
-}
-
-@media (max-width: 480px) {
-  #header {
-    flex-direction: column;
-    padding: 10px 20px;
-  }
-
-  #nav-bar {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  #header-img {
-    width: 60px;
+    flex-direction: column; /* Los links en columna */
+    gap: 20px; /* Espacio entre los links */
+    align-items: center; /* Centramos los links */
+    margin-top: 20px; /* Un poco de margen para separar el título de los links */
   }
 
   #nav-bar a {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Ajustamos el tamaño de fuente en pantallas pequeñas */
   }
 }
