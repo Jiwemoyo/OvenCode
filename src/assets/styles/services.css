@@ -25,7 +25,7 @@ div > strong{
 
 .div1 h2 {
   font-size: 40px;
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .div3 ,.div4,.div5,.div6,.div7{
@@ -37,7 +37,7 @@ div > strong{
 }
 
 .parent strong {
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .div2 {
@@ -48,9 +48,8 @@ div > strong{
   align-items: center;
 }
 
-.div2 i {
-  font-size: 15vw;
-  color: var(--color-secondary);
+.div2 img {
+  width: 20vw;
 }
 
 .div3 {
@@ -70,7 +69,6 @@ div > strong{
 .div7 {
   grid-column-start: 2;
   grid-row-start: 3;
-  margin-top: 100px;
 }
 
 .div8 {

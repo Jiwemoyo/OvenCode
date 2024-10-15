@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <header id="header">
       <div className="title">
-        <img src="/ovenCodeLogo.png" alt="OvenCodeLogo" id="header-img" />
+        <img src="/ovenLogo.png" alt="OvenCodeLogo" id="header-img" />
         <h1>Oven Code</h1>
       </div>
       <nav id="nav-bar" className={isMenuOpen ? 'active' : ''}>

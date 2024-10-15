@@ -12,9 +12,8 @@
   margin-bottom: 100px;
 }
 
-.about i {
-  font-size: 200px;
-  color: var(--color-primary);
+.about-img {
+width: 500px;
 }
 
 .about-content {
@@ -73,8 +72,8 @@
     text-align: center;
   }
 
-  .about i {
-    font-size: 120px;
+  .about-img{
+    width: 300px;
   }
 
   .about-content {
@@ -105,4 +104,9 @@
   .about-content p {
     font-size: 14px;
   }
+
+  .about-img{
+    width: 300px;
+  }
+
 }

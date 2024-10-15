@@ -2,9 +2,9 @@ import '../assets/styles/about.css'
 
 export const About = () => {
     return (
-        <div className='article'>
+        <div className='article' id='about'>
             <section className='about'>
-                <i className='fas fa-users'></i>
+                <img src="aboutUs.png" alt="about" className='about-img'/>
                 <div className="about-content">
                     <h2 className="titleAbout">About us</h2>
                     <p>

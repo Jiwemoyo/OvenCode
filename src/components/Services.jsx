@@ -13,7 +13,7 @@ export const Services = () => {
           </p>
         </div>
         <div className="div2">
-          <i className="fas fa-concierge-bell"></i>
+          <img src="services.png" alt="services" />
         </div>
         <div className="div3">
           <strong>Custom Landing Page Design:</strong>
