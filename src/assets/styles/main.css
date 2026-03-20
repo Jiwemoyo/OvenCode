@@ -1,14 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 :root {
-  --color-primary: #6a0dad;
-  --color-secondary: #4a0a7f;
-  --color-background: #fefefc;
-  --font-family-primary: "Montserrat", sans-serif;
-  --font-family-secondary: "Hind Madurai", sans-serif;
-  --font-size-large: 4rem;
-  --font-size-medium: 1.5rem;
-  --font-size-small: 1rem;
+  /* OvenCode Core Identity: Modern SaaS + Retro Code */
+  --color-primary: #9b00ff; /* Brand Purple */
+  --color-secondary: #ff6a00; /* Energetic Orange */
+  --color-tertiary: #ff007f; /* Magenta/Pink (Accents only) */
+  
+  /* Deep Space Darkness */
+  --color-bg: #07040e; 
+  --color-card-bg: rgba(18, 12, 31, 0.6); /* Translucent dark purple base */
+  --color-card-border: rgba(155, 0, 255, 0.15); /* Purple tinted borders */
+  
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  
+  --font-modern: "Inter", sans-serif;
+  --font-code: "VT323", monospace; /* Console / Terminal vibe */
 }
 
 * {
@@ -18,19 +23,68 @@
 }
 
 html, body {
-  height: 100%;
-  font-family: var(--font-family-secondary);
+  min-height: 100%;
+  font-family: var(--font-modern);
   scroll-behavior: smooth;
-  background-color: var(--color-background);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  overflow-x: hidden;
 }
 
-h1, h2 {
-  font-family: var(--font-family-primary);
-  color: var(--color-primary);
+/* Base glowing environment - Highly polished, eliminating "flatness" via pure depth */
+
+/* 1. Dotted Tech Grid Background (Crisp Code Grid) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center center;
+  z-index: -2;
+  pointer-events: none;
 }
 
-span {
-  font-family: var(--font-family-primary);
-  color: var(--color-primary);
-  font-weight: bolder;
+/* 2. Soft Dynamic Volumetric Orbs in Brand Colors */
+body::after {
+  content: '';
+  position: fixed;
+  top: -20%; left: -20%; right: -20%; bottom: -20%;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(155, 0, 255, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 106, 0, 0.2) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(255, 0, 127, 0.15) 0%, transparent 50%);
+  filter: blur(100px); /* Massive volumetric spread */
+  z-index: -1;
+  pointer-events: none;
+  animation: orbDrift 25s infinite alternate ease-in-out;
+}
+
+@keyframes orbDrift {
+  0% { transform: scale(1) translate(0, 0); }
+  33% { transform: scale(1.05) translate(3%, 4%); }
+  66% { transform: scale(0.95) translate(-3%, 4%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-modern);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: var(--color-text-main);
+}
+
+/* A specialized span for inline code accents */
+.code-accent {
+  font-family: var(--font-code);
+  color: var(--color-secondary); /* Orange code text */
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-transform: uppercase;
 }

@@ -1,24 +1,30 @@
-@import './main.css';
-
 #footer {
-  background-color: var(--color-secondary);
-  color: var(--color-background);
+  background-color: #04020a;
+  color: var(--color-text-muted);
   text-align: center;
-  padding: 20px 0;
-  font-family: var(--font-family-secondary);
-  font-size: var(--font-size-small);
+  padding: 60px 0 40px 0;
+  font-family: var(--font-code); /* Make footer all code */
+  font-size: 1.1rem;
+  border-top: 1px solid var(--color-card-border);
+  margin-top: 100px;
+  position: relative;
+  z-index: 2;
 }
 
 #footer p {
   margin: 0;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
 #footer a {
-  color: #f6a44d;
+  color: #fff;
   text-decoration: none;
-  margin: 0 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0 15px;
 }
 
 #footer a:hover {
-  text-decoration: underline;
+  color: var(--color-secondary); /* Turn orange on hover */
 }

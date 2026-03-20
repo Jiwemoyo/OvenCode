@@ -4,19 +4,20 @@ export const Hero = () => {
   return (
     <section id="hero">
       <div className="content">
-        <h2>Welcome to OvenCode</h2>
+        <span className="code-accent subtitle">{"> // OVEN_CODE_INIT"}</span>
+        <h2>A Smart Landing Page Creation</h2>
         <p>
-          In a digital world filled with distractions, your landing page is the
-          key to standing out. At <span>OvenCode</span>, we specialize in
-          creating irresistible landing pages that not only attract visitors but
-          also convert them into loyal customers. We use intuitive design,
-          persuasive content, and optimization strategies to maximize your
-          conversion rate. Let us help you transform interest into action and
-          take your business to the next level. Together, we’ll make every click
-          count!
+          Streamline your process with our latest intelligent sorting and design solutions.
+          At OvenCode, we specialize in high-converting pages.
         </p>
+        <div className="hero-actions">
+          <a href="#video" className="btn-primary">Get Started <span className="code-accent">_</span></a>
+          <a href="#video" className="btn-outline">Watch Video</a>
+        </div>
       </div>
-      <img src="ovenCodeHero.png" alt="" id="id-video" />
+      
+      {/* 3D Graphic retained as requested but with refined glows */}
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="OvenCode Platform" />
     </section>
   );
 };

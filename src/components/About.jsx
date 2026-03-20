@@ -1,21 +1,21 @@
-import '../assets/styles/about.css'
+import "../assets/styles/about.css";
+// import aboutImage from "../assets/icons/about.png"; // Original asset if exists
 
 export const About = () => {
-    return (
-        <div className='article' id='about'>
-            <section className='about'>
-                <img src="aboutUs.png" alt="about" className='about-img'/>
-                <div className="about-content">
-                    <h2 className="titleAbout">About us</h2>
-                    <p>
-                    At OvenCode, we are passionate about creating landing pages that not only look great but also drive results. Founded by a team of digital marketing experts and designers, our mission is to help businesses of all sizes enhance their online presence and achieve their goals.
-                    We understand that a landing page is more than just a web page; it's a powerful tool that can make or break your marketing efforts. That's why we focus on crafting customized solutions tailored to your unique needs, combining stunning visuals with effective messaging and proven strategies.
-                    With years of experience in the industry, we pride ourselves on our attention to detail, commitment to quality, and dedication to client satisfaction. Whether you're looking to boost lead generation, increase sales, or build brand awareness, OvenCode is here to partner with you every step of the way.
-                    Join us on this journey to transform your digital landscape and unlock the true potential of your business!
-                    </p>
-                </div>
-            </section>
-
+  return (
+    <article className="article" id="about">
+      <div className="about">
+        <div className="about-content">
+          <span className="code-accent">{"> // ABOUT_OVEN_CODE"}</span>
+          <h2>The Architecture of Success</h2>
+          <p>
+            We don't just build websites; we engineer digital experiences. By merging
+            high-level modern frameworks with a deep understanding of code performance
+            and elegant architecture, OvenCode delivers solutions that scale indefinitely.
+          </p>
         </div>
-    )
-}
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="OvenCode Setup" className="about-img" />
+      </div>
+    </article>
+  );
+};

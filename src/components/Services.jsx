@@ -1,70 +1,51 @@
-import '../assets/styles/services.css'
+import "../assets/styles/services.css";
 
+// The icons here can be replaced by actual SVG components, or we rely on font-awesome
 export const Services = () => {
   return (
-    <section id="services">
-      <div className="parent">
+    <article id="services-section">
+      <div className="services-header">
+        <span className="code-accent">{"> // SYS_MODULES"}</span>
+        <h2>Explore our Capabilities</h2>
+        <p>Discover how OvenCode powers your digital transformation with precision and modern stack tools.</p>
+      </div>
+
+      <div id="services">
         <div className="div1">
-          <h2>Our Services</h2>
-          <p className='presentation'>
-            At <span>OvenCode</span>, we offer a range of services designed to
-            help you create high-converting landing pages tailored to your
-            business needs. Our comprehensive solutions include:
-          </p>
+          <div className="service-icon"><span className="code-accent">[SEC]</span></div>
+          <h3>Secure Authentication</h3>
+          <p>Implement enterprise-grade security protocols with zero-trust architecture.</p>
         </div>
         <div className="div2">
-          <img src="services.png" alt="services" />
+          {/* We keep the central image as requested but integrated seamlessly */}
+          <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="Platform core" />
         </div>
         <div className="div3">
-          <strong>Custom Landing Page Design:</strong>
-          <p>
-            We create visually stunning and user-friendly landing pages that
-            capture attention and engage visitors. Our designs are tailored to
-            reflect your brand identity and resonate with your target audience.
-          </p>
+          <div className="service-icon"><span className="code-accent">[API]</span></div>
+          <h3>RESTful Endpoints</h3>
+          <p>High-performance backend services capable of handling thousands of requests.</p>
         </div>
         <div className="div4">
-          <strong>Conversion Rate Optimization:</strong>
-          <p>
-            Our team employs data-driven strategies to optimize your landing
-            pages for maximum conversion rates. We analyze user behavior, A/B
-            test different elements, and implement best practices to ensure your
-            page drives results.
-          </p>
+          <div className="service-icon"><span className="code-accent">[DB]</span></div>
+          <h3>Cloud Storage</h3>
+          <p>Seamless database integration and highly scalable data silos.</p>
         </div>
         <div className="div5">
-          <strong>Content Strategy and Copywriting:</strong>
-          <p>
-            Compelling content is key to keeping your visitors engaged. Our
-            skilled copywriters craft persuasive messaging that highlights your
-            value proposition and encourages users to take action.
-          </p>
+          <div className="service-icon"><span className="code-accent">[UX]</span></div>
+          <h3>Modern Interfaces</h3>
+          <p>Provide fluid, user-centric frontends tailored to your needs.</p>
         </div>
         <div className="div6">
-          <strong>Responsive Web Design:</strong>
-          <p>
-            With more users accessing websites on mobile devices, we ensure that
-            your landing pages are fully responsive and provide an optimal
-            experience across all screen sizes and devices.
-          </p>
+          <div className="service-icon"><span className="code-accent">[ML]</span></div>
+          <h3>AI Integrations</h3>
+          <p>Utilize intelligent models to predict and automate tasks.</p>
         </div>
         <div className="div7">
-          <strong>Analytics and Performance Tracking:</strong>
-          <p>
-            We set up tracking and analytics to monitor your landing page
-            performance. Our reports provide valuable insights that help you
-            understand user behavior and make informed decisions for future
-            improvements.
-          </p>
-        </div>
-        <div className="div8">
-          <p>
-            At <span>OvenCode</span>, we are dedicated to helping you achieve
-            your business goals through expertly crafted landing pages. Let us
-            partner with you to create a powerful online presence that converts!
-          </p>
+          <div className="service-icon"><span className="code-accent">[NET]</span></div>
+          <h3>Global CDN</h3>
+          <p>Deliver assets at lightning speed to users anywhere globally.</p>
         </div>
       </div>
-    </section>
+    </article>
   );
 };

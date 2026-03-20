@@ -1,103 +1,132 @@
-@import './main.css';
+#services-section {
+  padding: 100px 80px;
+  position: relative;
+  z-index: 2;
+}
 
-.parent {
+.services-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+.services-header h2 {
+  font-size: 3rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.services-header p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+#services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 8px;
-  align-items: center;
-  padding: 20px 100px;
-  justify-content: center;
-  text-align: center;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-div > strong{
-  font-size: 1.5vw ;
-}
-
-.div1 {
-  grid-column: span 3 / span 3;
-  text-align: center;
+/* Base Card Styling */
+.div1, .div3, .div4, .div5, .div6, .div7 {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 12px;
+  padding: 40px 30px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
-  gap: 32px;
-}
-
-.div1 h2 {
-  font-size: 40px;
-  color: var(--color-primary);
-}
-
-.div3 ,.div4,.div5,.div6,.div7{
-  font-size: 1vw;
-}
-
-.presentation ,.div8{
-  font-size: 1.5vw;
-}
-
-.parent strong {
-  color: var(--color-primary);
-}
-
-.div2 {
-  grid-column-start: 2;
-  grid-row-start: 2;
-  display: flex;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle orange pulse border at the bottom */
+.div1::after, .div3::after, .div4::after, .div5::after, .div6::after, .div7::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background-color: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.div1:hover::after, .div3:hover::after, .div4:hover::after, .div5:hover::after, .div6:hover::after, .div7:hover::after {
+  transform: scaleX(1);
+}
+
+.div1:hover, .div3:hover, .div4:hover, .div5:hover, .div6:hover, .div7:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(255, 106, 0, 0.1);
+  border-color: rgba(255, 106, 0, 0.3); /* Orange hint */
+}
+
+.service-icon {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+#services h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+#services p {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout definitions */
+.div1 { grid-column-start: 1; grid-row-start: 1; }
+.div2 { 
+  grid-column: 2 / 3; 
+  grid-row: 1 / 4; 
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .div2 img {
-  width: 20vw;
+  width: 90%;
+  filter: drop-shadow(0 20px 40px rgba(155, 0, 255, 0.15));
+  animation: pulsePremium 4s infinite ease-in-out;
 }
 
-.div3 {
-  grid-column-start: 1;
-  grid-row-start: 2;
+@keyframes pulsePremium {
+  0% { transform: scale(1); filter: drop-shadow(0 20px 40px rgba(155, 0, 255, 0.1)); }
+  50% { transform: scale(1.03); filter: drop-shadow(0 30px 50px rgba(155, 0, 255, 0.25)); }
+  100% { transform: scale(1); filter: drop-shadow(0 20px 40px rgba(155, 0, 255, 0.1)); }
 }
 
-.div4 {
-  grid-row-start: 2;
+.div3 { grid-column-start: 1; grid-row-start: 2; }
+.div4 { grid-column-start: 1; grid-row-start: 3; }
+.div5 { grid-column-start: 3; grid-row-start: 1; }
+.div6 { grid-column-start: 3; grid-row-start: 2; }
+.div7 { grid-column-start: 3; grid-row-start: 3; }
+
+@media (max-width: 1024px) {
+  #services {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .div2 {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding: 40px 0;
+  }
+  .div2 img { width: 50%; }
 }
 
-.div6 {
-  grid-column-start: 3;
-  grid-row-start: 3;
-}
-
-.div7 {
-  grid-column-start: 2;
-  grid-row-start: 3;
-}
-
-.div8 {
-  grid-column: span 3 / span 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Media query for smaller screens */
 @media (max-width: 768px) {
-  .parent{
-    margin: 0;
-    padding: 0 20px;
-    width: 100%;
-  }
-  .div7{
-    margin-top: 0;
-  }
-
-  .div3 ,.div4,.div5,.div6,.div7{
-    font-size: 16px;
-  }
-
-  .presentation ,.div8{
-    font-size: 18px
-  }
-
-  div > strong{
-    font-size: 24px ;
-  }
+  #services-section { padding: 60px 40px; }
+  .services-header h2 { font-size: 2.5rem; }
+  #services { grid-template-columns: 1fr; }
+  .div2 img { width: 80%; }
 }

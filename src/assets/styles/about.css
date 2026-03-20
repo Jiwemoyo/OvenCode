@@ -1,112 +1,97 @@
-/* Estilos para pantallas grandes (por defecto) */
 .article {
-  margin-top: 100px;
-  padding: 20px 100px;
+  padding: 60px 100px;
+  position: relative;
+  z-index: 2;
 }
 
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10rem; /* Reducimos el gap */
-  margin-bottom: 100px;
+  gap: 8rem;
+  margin-bottom: 80px;
+  padding: 60px 80px;
+  border-radius: 16px;
+  border: 1px solid var(--color-card-border);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  background-color: var(--color-card-bg);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle orange pulse border inside the left edge */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-secondary); /* Orange */
+  box-shadow: 0 0 15px rgba(255, 106, 0, 0.4);
+  pointer-events: none;
 }
 
 .about-img {
-width: 500px;
+  width: 450px;
+  max-width: 100%;
+  filter: drop-shadow(0 20px 40px rgba(155, 0, 255, 0.2));
+  border-radius: 20px;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.about-img:hover {
+  transform: scale(1.02) translateY(-5px);
+  filter: drop-shadow(0 30px 50px rgba(155, 0, 255, 0.3));
 }
 
 .about-content {
-  width: 100%; /* Expandimos el ancho del contenido */
-  max-width: 1200px; /* Máximo ancho similar al de Hero */
-  text-align: left; /* Alineamos el texto a la izquierda */
+  width: 100%;
+  max-width: 1200px;
+  text-align: left;
+  z-index: 1;
+}
+
+.about-content .code-accent {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .about-content h2 {
-  font-size: 40px;
-  color: var(--color-primary);
-  margin-bottom: 32px;
+  font-size: 3.5rem;
+  margin-bottom: 25px;
 }
 
 .about-content p {
-  font-size: 20px;
-  font-family: var(--font-family-secondary);
-  line-height: 1.6; /* Aumentamos la altura de línea para mejorar legibilidad */
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--color-text-muted);
+  max-width: 95%;
 }
 
-/* Estilos para pantallas medianas */
 @media (max-width: 1024px) {
   .about {
-    gap: 5rem; /* Reducimos más el gap */
+    gap: 4rem;
+    padding: 50px 40px;
   }
-
-  .about i {
-    font-size: 150px; /* Tamaño reducido del ícono */
-  }
-
-  .about-content {
-    width: 90%; /* Ajustamos el ancho para pantallas medianas */
-  }
-
-  .about-content h2 {
-    font-size: 35px;
-  }
-
-  .about-content p {
-    font-size: 18px;
-  }
+  .about-content h2 { font-size: 2.8rem; }
+  .about-content p { font-size: 1.1rem; }
 }
 
-/* Estilos para pantallas pequeñas */
 @media (max-width: 768px) {
   .about {
     flex-direction: column;
     gap: 40px;
+    padding: 40px 20px;
+    margin: 20px;
   }
-
-  .article{
-    padding: 0;
-    text-align: center;
+  .article { padding: 0; }
+  .about-img { width: 85%; }
+  .about-content { text-align: center; }
+  .about::before {
+    top: 0; left: 0; width: 100%; height: 4px;
   }
-  .titleAbout{
-    text-align: center;
-  }
-
-  .about-img{
-    width: 300px;
-  }
-
-  .about-content {
-    width: 100%;
-    padding: 0 20px;
-    text-align: justify; /* Justificamos el texto para un mejor aspecto */
-  }
-
-  .about-content h2 {
-    font-size: 30px;
-  }
-
-  .about-content p {
-    font-size: 16px;
-  }
-}
-
-/* Estilos para pantallas muy pequeñas (móviles) */
-@media (max-width: 480px) {
-  .about i {
-    font-size: 100px;
-  }
-
-  .about-content h2 {
-    font-size: 25px;
-  }
-
-  .about-content p {
-    font-size: 14px;
-  }
-
-  .about-img{
-    width: 300px;
-  }
-
 }
