@@ -44,6 +44,49 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  padding: 12px 20px; /* Spacing for the cubic HUD box */
+}
+
+/* The Cubic Energy Circuit (Left/Right/Bottom of the U) */
+#nav-bar a.nav-link::before {
+  content: '';
+  position: absolute;
+  top: -35px; /* Reaches EXACTLY to the top border of #root (-32px padding/alignment + 2px border offset + 1px safety) */
+  left: 0; right: 0;
+  height: 0; /* Starts retracted at the ceiling */
+  border: 2px solid var(--color-secondary);
+  border-top: none; /* Open to fuse with the severed main line */
+  opacity: 0;
+  transition: height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 10001; /* Renders above the top border */
+}
+
+/* The 'Eraser' Mask to physically break the top border line */
+#nav-bar a.nav-link::after {
+  content: '';
+  position: absolute;
+  top: -38px; /* Centered precisely over the main 3px border line */
+  height: 8px; /* Tall enough to completely obscure the line */
+  left: 2px; right: 2px; /* Fits exactly inside the 2px vertical walls of the U */
+  background-color: var(--color-bg); /* Matches the cosmic background to simulate a geometric cut */
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+  z-index: 10001; /* Essential to cover the 10000 z-index energy line */
+}
+
+#nav-bar a.nav-link:hover::after {
+  opacity: 1; /* Instant line break */
+}
+
+#nav-bar a.nav-link:hover::before {
+  height: calc(100% + 35px); /* Grows physically down to completely form the U around the text */
+  opacity: 1;
+  /* Replaced standard box-shadow with a drop-shadow filter so NO fake top line is drawn! */
+  filter: drop-shadow(0 5px 15px rgba(255, 106, 0, 0.6));
+  background: linear-gradient(180deg, transparent 60%, rgba(255, 106, 0, 0.15) 100%);
 }
 
 #nav-bar a.nav-link .code-accent {
@@ -56,6 +99,7 @@
 
 #nav-bar a.nav-link:hover {
   color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 #nav-bar a.nav-link:hover .code-accent {

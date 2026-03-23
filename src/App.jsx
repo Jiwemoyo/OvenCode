@@ -8,6 +8,11 @@ import { About } from './components/About'
 export const App = () => {
   return (
     <>
+      <div className="border-tracers">
+        <div className="tracer right"></div>
+        <div className="tracer bottom"></div>
+        <div className="tracer left"></div>
+      </div>
       <div className="app-content">
         <Header/>
         <Hero/>
