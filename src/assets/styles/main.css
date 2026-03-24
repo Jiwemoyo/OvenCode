@@ -1,19 +1,25 @@
 :root {
   /* OvenCode Core Identity: Modern SaaS + Retro Code */
-  --color-primary: #9b00ff; /* Brand Purple */
-  --color-secondary: #ff6a00; /* Energetic Orange */
-  --color-tertiary: #ff007f; /* Magenta/Pink (Accents only) */
-  
+  --color-primary: #9b00ff;
+  /* Brand Purple */
+  --color-secondary: #ff6a00;
+  /* Energetic Orange */
+  --color-tertiary: #ff007f;
+  /* Magenta/Pink (Accents only) */
+
   /* Deep Space Darkness */
-  --color-bg: #07040e; 
-  --color-card-bg: rgba(18, 12, 31, 0.6); /* Translucent dark purple base */
-  --color-card-border: rgba(155, 0, 255, 0.15); /* Purple tinted borders */
-  
+  --color-bg: #07040e;
+  --color-card-bg: rgba(18, 12, 31, 0.6);
+  /* Translucent dark purple base */
+  --color-card-border: rgba(155, 0, 255, 0.15);
+  /* Purple tinted borders */
+
   --color-text-main: #f8fafc;
   --color-text-muted: #94a3b8;
-  
+
   --font-modern: "Inter", sans-serif;
-  --font-code: "VT323", monospace; /* Console / Terminal vibe */
+  --font-code: "VT323", monospace;
+  /* Console / Terminal vibe */
 }
 
 * {
@@ -22,7 +28,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   font-family: var(--font-modern);
   scroll-behavior: smooth;
@@ -35,116 +42,60 @@ html, body {
 #root {
   max-width: 1500px;
   margin: 40px auto;
-  min-height: calc(100vh - 80px); /* Fill screen minus margin */
-  border: 1px solid var(--color-card-border); /* Subtle purple border for bottom/sides */
-  border-top: none; /* Replaced by energy feeder */
-  border-radius: 0; /* Flat corners requested by user */
+  min-height: calc(100vh - 80px);
   position: relative;
+
+  /* The Glowing Border is the background of the root itself! */
+  background: linear-gradient(90deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 25%,
+      rgba(255, 106, 0, 0.9) 40%,
+      #ffffff 50%,
+      rgba(255, 106, 0, 0.9) 60%,
+      var(--color-secondary) 75%,
+      var(--color-primary) 100%);
+  background-size: 200% 100%;
+  animation: energyFeed 6s linear infinite;
+
+  /* REDONDEADO: Solo esquinas superiores */
+  /* border-radius: 20px 20px 0 0; */
+  /* Pero como tenemos padding y clip-path, mejor usamos clip-path con curvas */
+
+  /* Eliminamos el clip-path anterior y usamos uno más simple con bordes redondeados arriba */
+  clip-path: inset(0 round 20px 20px 0 0);
+
+  padding: 3px;
+  filter: drop-shadow(0 0 15px rgba(255, 106, 0, 0.6));
 }
 
-/* TOP BORDER ENERGY FEEDER */
-#root::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -1px; right: -1px; height: 3px;
-  background: linear-gradient(90deg, 
-    var(--color-primary) 0%, 
-    rgba(255, 106, 0, 0.8) 40%, 
-    #ffffff 80%, 
-    rgba(255, 106, 0, 0.8) 100%);
-  background-size: 200% 100%;
-  box-shadow: 0 -8px 25px rgba(255, 106, 0, 0.6), 0 5px 15px rgba(255, 106, 0, 0.15);
-  animation: energyFeed 2s linear infinite;
-  z-index: 10000;
-  pointer-events: none;
+.app-content {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 86px);
+  background-color: var(--color-bg);
+
+  /* Mismo redondeado solo en esquinas superiores */
+  clip-path: inset(0 round 20px 20px 0 0);
 }
 
 @keyframes energyFeed {
-  /* Animate gradient to simulate energy flowing constantly from Left to Right */
-  0% { background-position: 200% 0; }
-  100% { background-position: 0% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: 0% 0;
+  }
 }
 
-/* 2 flat corner accents (bottom only) placed OVER the content */
-#root::after {
-  content: '';
-  position: absolute;
-  top: -1px; left: -1px; right: -1px; bottom: -1px;
-  pointer-events: none;
-  z-index: 9999;
-  background:
-    /* Bottom Left */
-    linear-gradient(var(--color-secondary), var(--color-secondary)) bottom left / 40px 3px no-repeat,
-    linear-gradient(var(--color-secondary), var(--color-secondary)) bottom left / 3px 40px no-repeat,
-    /* Bottom Right */
-    linear-gradient(var(--color-secondary), var(--color-secondary)) bottom right / 40px 3px no-repeat,
-    linear-gradient(var(--color-secondary), var(--color-secondary)) bottom right / 3px 40px no-repeat;
-}
-
-/* ANIMATED ORANGE PIXEL TRAIL (TRACERS) */
-.border-tracers {
-  position: absolute;
-  top: -1px; left: -1px; right: -1px; bottom: -1px;
-  pointer-events: none;
-  z-index: 9998;
-  overflow: hidden; /* Prevent trail shining outside the box */
-}
-
-.tracer {
-  position: absolute;
-}
-
-/* 
-  One single continuous pixel snake going Right -> Bottom -> Left.
-  The total loop is 8 seconds (25% for each stage).
-  It skips the Top edge completely.
-*/
-.tracer.right {
-  top: -100%; right: 0; width: 2px; height: 100%;
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 106, 0, 0.4) 60%, rgba(255, 106, 0, 1) 95%, #ffffff 100%);
-  animation: traceRight 8s linear infinite;
-}
-.tracer.bottom {
-  bottom: 0; right: -100%; width: 100%; height: 2px;
-  background: linear-gradient(270deg, transparent 0%, rgba(255, 106, 0, 0.4) 60%, rgba(255, 106, 0, 1) 95%, #ffffff 100%);
-  animation: traceBottom 8s linear infinite;
-}
-.tracer.left {
-  bottom: -100%; left: 0; width: 2px; height: 100%;
-  background: linear-gradient(0deg, transparent 0%, rgba(255, 106, 0, 0.4) 60%, rgba(255, 106, 0, 1) 95%, #ffffff 100%);
-  animation: traceLeft 8s linear infinite;
-}
-
-/* The math here connects the tail and head seamlessly across corners */
-@keyframes traceRight {
-  0% { top: -100%; } /* Head enters top-right */
-  25% { top: 0%; }   /* Head reaches bottom-right */
-  50% { top: 100%; } /* Tail leaves bottom-right */
-  100% { top: 100%; }
-}
-
-@keyframes traceBottom {
-  0% { right: -100%; }
-  25% { right: -100%; } /* Head enters bottom-right */
-  50% { right: 0%; }    /* Head reaches bottom-left */
-  75% { right: 100%; }  /* Tail leaves bottom-left */
-  100% { right: 100%; }
-}
-
-@keyframes traceLeft {
-  0% { bottom: -100%; }
-  50% { bottom: -100%; } /* Head enters bottom-left */
-  75% { bottom: 0%; }    /* Head reaches top-left */
-  100% { bottom: 100%; } /* Tail leaves top-left */
-}
-
-/* Base glowing environment - Highly polished, eliminating "flatness" via pure depth */
-
-/* 1. Dotted Tech Grid Background (Crisp Code Grid) */
+/* Base glowing environment */
 body::before {
   content: '';
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: center center;
@@ -152,34 +103,52 @@ body::before {
   pointer-events: none;
 }
 
-/* 2. Soft Dynamic Volumetric Orbs in Brand Colors */
+/* Soft Dynamic Volumetric Orbs in Brand Colors */
 body::after {
   content: '';
   position: fixed;
-  top: -20%; left: -20%; right: -20%; bottom: -20%;
-  background: 
+  top: -20%;
+  left: -20%;
+  right: -20%;
+  bottom: -20%;
+  background:
     radial-gradient(circle at 30% 20%, rgba(155, 0, 255, 0.3) 0%, transparent 60%),
     radial-gradient(circle at 80% 80%, rgba(255, 106, 0, 0.2) 0%, transparent 60%),
     radial-gradient(circle at 10% 80%, rgba(255, 0, 127, 0.15) 0%, transparent 50%);
-  filter: blur(100px); /* Massive volumetric spread */
+  filter: blur(100px);
   z-index: -1;
   pointer-events: none;
   animation: orbDrift 25s infinite alternate ease-in-out;
 }
 
 @keyframes orbDrift {
-  0% { transform: scale(1) translate(0, 0); }
-  33% { transform: scale(1.05) translate(3%, 4%); }
-  66% { transform: scale(0.95) translate(-3%, 4%); }
-  100% { transform: scale(1) translate(0, 0); }
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  33% {
+    transform: scale(1.05) translate(3%, 4%);
+  }
+
+  66% {
+    transform: scale(0.95) translate(-3%, 4%);
+  }
+
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
 }
 
 .app-content {
   position: relative;
   z-index: 1;
+  padding: 40px 60px;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-modern);
   font-weight: 800;
   letter-spacing: -1px;
@@ -187,10 +156,9 @@ h1, h2, h3, h4 {
   color: var(--color-text-main);
 }
 
-/* A specialized span for inline code accents */
 .code-accent {
   font-family: var(--font-code);
-  color: var(--color-secondary); /* Orange code text */
+  color: var(--color-secondary);
   letter-spacing: 1px;
   font-weight: 400;
   text-transform: uppercase;
