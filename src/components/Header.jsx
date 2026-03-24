@@ -12,7 +12,7 @@ export const Header = () => {
     <header id="header">
       <div className="title">
         <img src="/ovenLogo.png" alt="OvenCodeLogo" id="header-img" />
-        <h1>OvenCode</h1>
+        <h1>Oven_Code</h1>
       </div>
       <nav id="nav-bar" className={isMenuOpen ? 'active' : ''}>
         <a href="#about" className="nav-link">About <span className="code-accent">_01</span></a>

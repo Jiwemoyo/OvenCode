@@ -3,11 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 80px;
+  padding: 20px 80px;
   background-color: transparent; 
-  position: absolute;
-  top: 0;
-  width: 100%;
+  position: relative;
+  width: auto;
+  max-width: 100%;
   z-index: 1000;
 }
 
@@ -15,22 +15,30 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 #header-img {
-  width: 45px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  align-self: center;
 }
 
 #header h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: -1px;
+  margin-top: 8px;
 }
 
 #nav-bar {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -39,92 +47,313 @@
   font-family: var(--font-modern);
   font-weight: 500;
   color: var(--color-text-muted);
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
   display: flex;
   align-items: center;
   gap: 8px;
   position: relative;
-  padding: 12px 20px; /* Spacing for the cubic HUD box */
+  padding: 14px 24px;
+  overflow: visible;
+  letter-spacing: 0.5px;
 }
 
-/* The Cubic Energy Circuit (Left/Right/Bottom of the U) */
+/* Fondo de calor del horno - se calienta al hover */
 #nav-bar a.nav-link::before {
   content: '';
   position: absolute;
-  top: -35px; /* Reaches EXACTLY to the top border of #root (-32px padding/alignment + 2px border offset + 1px safety) */
-  left: 0; right: 0;
-  height: 0; /* Starts retracted at the ceiling */
-  border: 2px solid var(--color-secondary);
-  border-top: none; /* Open to fuse with the severed main line */
+  inset: 0;
   opacity: 0;
-  transition: height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease;
+  z-index: 0;
   pointer-events: none;
-  z-index: 10001; /* Renders above the top border */
+  display: none;
 }
 
-/* The 'Eraser' Mask to physically break the top border line */
+/* Efecto de ondas de calor - distorsión */
 #nav-bar a.nav-link::after {
   content: '';
   position: absolute;
-  top: -38px; /* Centered precisely over the main 3px border line */
-  height: 8px; /* Tall enough to completely obscure the line */
-  left: 2px; right: 2px; /* Fits exactly inside the 2px vertical walls of the U */
-  background-color: var(--color-bg); /* Matches the cosmic background to simulate a geometric cut */
+  inset: 0;
   opacity: 0;
-  transition: opacity 0.1s ease;
+  z-index: 1;
   pointer-events: none;
-  z-index: 10001; /* Essential to cover the 10000 z-index energy line */
+  display: none;
 }
 
-#nav-bar a.nav-link:hover::after {
-  opacity: 1; /* Instant line break */
+/* Contenedor para texto (z-index mayor) */
+#nav-bar a.nav-link > * {
+  position: relative;
+  z-index: 2;
 }
 
-#nav-bar a.nav-link:hover::before {
-  height: calc(100% + 35px); /* Grows physically down to completely form the U around the text */
-  opacity: 1;
-  /* Replaced standard box-shadow with a drop-shadow filter so NO fake top line is drawn! */
-  filter: drop-shadow(0 5px 15px rgba(255, 106, 0, 0.6));
-  background: linear-gradient(180deg, transparent 60%, rgba(255, 106, 0, 0.15) 100%);
+/* Partículas flotando */
+#nav-bar a.nav-link .code-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  display: none;
 }
 
+/* Partículas de calor subiendo */
 #nav-bar a.nav-link .code-accent {
   font-size: 0.8rem;
-  color: var(--color-secondary); /* Orange details */
-  opacity: 0; /* Hidden by default */
-  transform: translateX(-5px);
+  color: var(--color-secondary);
+  opacity: 0;
+  transform: translateX(-5px) translateY(0);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  display: inline-block;
 }
 
 #nav-bar a.nav-link:hover {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  color: #ff6a00;
+  text-shadow: 
+    0 0 10px rgba(255, 106, 0, 1),
+    0 0 20px rgba(255, 106, 0, 0.9),
+    0 0 30px rgba(255, 106, 0, 0.8),
+    0 0 40px rgba(255, 106, 0, 0.6);
+  animation: neonFlicker 0.15s ease-in-out infinite, neonFail 4s ease-in-out infinite;
+}
+
+#nav-bar a.nav-link:hover::before {
+  display: none;
+}
+
+#nav-bar a.nav-link:hover::after {
+  display: none;
 }
 
 #nav-bar a.nav-link:hover .code-accent {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateY(-3px);
+  color: #ff6a00;
+  text-shadow: 
+    0 0 10px rgba(255, 106, 0, 1),
+    0 0 20px rgba(255, 106, 0, 0.9);
+}
+
+/* Animaciones del horno digital */
+@keyframes ovenHeat {
+  0% {
+    opacity: 0;
+    background-position: 0% 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes heatWaves {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes heatRise {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-8px);
+  }
+}
+
+@keyframes floatingParticles {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-8px, -15px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(8px, -30px) scale(0.5);
+  }
 }
 
 #nav-bar .btn-nav {
   font-family: var(--font-code);
   background-color: transparent;
   color: var(--color-primary); /* Purple code */
-  padding: 10px 24px;
+  padding: 12px 28px;
   border: 1px solid var(--color-primary);
   border-radius: 4px; /* Slightly squared for tech feel */
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 0 15px rgba(155, 0, 255, 0.1);
+  box-shadow: 0 0 15px rgba(155, 0, 255, 0.3);
 }
 
 #nav-bar .btn-nav:hover {
   background-color: var(--color-primary);
-  color: #fff; 
-  box-shadow: 0 0 25px rgba(155, 0, 255, 0.4);
+  color: #fff;
+  box-shadow: 
+    0 0 10px rgba(155, 0, 255, 1),
+    0 0 20px rgba(155, 0, 255, 0.9),
+    0 0 30px rgba(155, 0, 255, 0.8),
+    0 0 40px rgba(155, 0, 255, 0.6);
+  text-shadow: 
+    0 0 10px rgba(155, 0, 255, 1),
+    0 0 20px rgba(155, 0, 255, 0.9),
+    0 0 30px rgba(155, 0, 255, 0.8);
+  animation: neonFlickerPurple 0.15s ease-in-out infinite, neonFailPurple 4s ease-in-out infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 10px rgba(255, 106, 0, 1),
+      0 0 20px rgba(255, 106, 0, 0.9),
+      0 0 30px rgba(255, 106, 0, 0.8),
+      0 0 40px rgba(255, 106, 0, 0.6);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 
+      0 0 5px rgba(255, 106, 0, 0.7),
+      0 0 10px rgba(255, 106, 0, 0.5),
+      0 0 15px rgba(255, 106, 0, 0.4),
+      0 0 20px rgba(255, 106, 0, 0.3);
+  }
+}
+
+@keyframes neonFail {
+  0%, 75%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 10px rgba(255, 106, 0, 1),
+      0 0 20px rgba(255, 106, 0, 0.9),
+      0 0 30px rgba(255, 106, 0, 0.8),
+      0 0 40px rgba(255, 106, 0, 0.6);
+  }
+  80% {
+    opacity: 0.3;
+    text-shadow: 
+      0 0 2px rgba(255, 106, 0, 0.3),
+      0 0 5px rgba(255, 106, 0, 0.2);
+  }
+  85% {
+    opacity: 1;
+    text-shadow: 
+      0 0 10px rgba(255, 106, 0, 1),
+      0 0 20px rgba(255, 106, 0, 0.9),
+      0 0 30px rgba(255, 106, 0, 0.8),
+      0 0 40px rgba(255, 106, 0, 0.6);
+  }
+  90% {
+    opacity: 0.2;
+    text-shadow: 
+      0 0 2px rgba(255, 106, 0, 0.2);
+  }
+  95% {
+    opacity: 1;
+    text-shadow: 
+      0 0 10px rgba(255, 106, 0, 1),
+      0 0 20px rgba(255, 106, 0, 0.9),
+      0 0 30px rgba(255, 106, 0, 0.8),
+      0 0 40px rgba(255, 106, 0, 0.6);
+  }
+}
+
+/* Purple neon effects for CONNECT button */
+@keyframes neonFlickerPurple {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8),
+      0 0 40px rgba(155, 0, 255, 0.6);
+    text-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 
+      0 0 5px rgba(155, 0, 255, 0.7),
+      0 0 10px rgba(155, 0, 255, 0.5),
+      0 0 15px rgba(155, 0, 255, 0.4),
+      0 0 20px rgba(155, 0, 255, 0.3);
+    text-shadow: 
+      0 0 5px rgba(155, 0, 255, 0.7),
+      0 0 10px rgba(155, 0, 255, 0.5),
+      0 0 15px rgba(155, 0, 255, 0.4);
+  }
+}
+
+@keyframes neonFailPurple {
+  0%, 75%, 100% {
+    opacity: 1;
+    box-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8),
+      0 0 40px rgba(155, 0, 255, 0.6);
+    text-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8);
+  }
+  80% {
+    opacity: 0.3;
+    box-shadow: 
+      0 0 2px rgba(155, 0, 255, 0.3),
+      0 0 5px rgba(155, 0, 255, 0.2);
+    text-shadow: 
+      0 0 2px rgba(155, 0, 255, 0.3),
+      0 0 5px rgba(155, 0, 255, 0.2);
+  }
+  85% {
+    opacity: 1;
+    box-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8),
+      0 0 40px rgba(155, 0, 255, 0.6);
+    text-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8);
+  }
+  90% {
+    opacity: 0.2;
+    box-shadow: 
+      0 0 2px rgba(155, 0, 255, 0.2);
+    text-shadow: 
+      0 0 2px rgba(155, 0, 255, 0.2);
+  }
+  95% {
+    opacity: 1;
+    box-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8),
+      0 0 40px rgba(155, 0, 255, 0.6);
+    text-shadow: 
+      0 0 10px rgba(155, 0, 255, 1),
+      0 0 20px rgba(155, 0, 255, 0.9),
+      0 0 30px rgba(155, 0, 255, 0.8);
+  }
 }
 
 @media (max-width: 768px) {
