@@ -1,51 +1,100 @@
-import "../assets/styles/services.css";
+import '../assets/styles/services.css'
 
-// The icons here can be replaced by actual SVG components, or we rely on font-awesome
 export const Services = () => {
   return (
     <article id="services-section">
       <div className="services-header">
-        <span className="code-accent">{"> // SYS_MODULES"}</span>
-        <h2>Explore our Capabilities</h2>
-        <p>Discover how OvenCode powers your digital transformation with precision and modern stack tools.</p>
+        <span className="code-accent">{'> // WHAT_WE_BAKE'}</span>
+        <h2>Modules we ship</h2>
+        <p>
+          From first sketch to production deploy, we build the whole stack with
+          a bias for delight and a soft spot for weird ideas.
+        </p>
       </div>
 
-      <div id="services">
-        <div className="div1">
-          <div className="service-icon"><span className="code-accent">[SEC]</span></div>
-          <h3>Secure Authentication</h3>
-          <p>Implement enterprise-grade security protocols with zero-trust architecture.</p>
+      <div id="services" data-reveal-group>
+        <div className="service-card div1">
+          <div className="service-icon">
+            <i className="fa-solid fa-window-maximize" />
+            <span className="code-accent">[WEB]</span>
+          </div>
+          <h3>Web Applications</h3>
+          <p>
+            Interactive product surfaces built with React, Vite and a healthy
+            obsession with detail.
+          </p>
         </div>
-        <div className="div2">
-          {/* We keep the central image as requested but integrated seamlessly */}
-          <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-3454628-2918517.png" alt="Platform core" />
+
+        <div className="services-core div2" data-parallax>
+          <div className="core-rings">
+            <span className="core-ring core-ring--1" />
+            <span className="core-ring core-ring--2" />
+            <span className="core-ring core-ring--3" />
+          </div>
+          <div className="core-glyph code-accent">{'</>'}</div>
+          <span className="core-label code-accent">build_mode: playful</span>
         </div>
-        <div className="div3">
-          <div className="service-icon"><span className="code-accent">[API]</span></div>
-          <h3>RESTful Endpoints</h3>
-          <p>High-performance backend services capable of handling thousands of requests.</p>
+
+        <div className="service-card div3">
+          <div className="service-icon">
+            <i className="fa-solid fa-plug" />
+            <span className="code-accent">[API]</span>
+          </div>
+          <h3>APIs &amp; Backends</h3>
+          <p>
+            Fast, well-shaped endpoints and data models that stay out of your
+            way.
+          </p>
         </div>
-        <div className="div4">
-          <div className="service-icon"><span className="code-accent">[DB]</span></div>
-          <h3>Cloud Storage</h3>
-          <p>Seamless database integration and highly scalable data silos.</p>
+
+        <div className="service-card div4">
+          <div className="service-icon">
+            <i className="fa-solid fa-palette" />
+            <span className="code-accent">[UI]</span>
+          </div>
+          <h3>Design Systems</h3>
+          <p>
+            Reusable components, tokens and motion rules that keep every screen
+            consistent.
+          </p>
         </div>
-        <div className="div5">
-          <div className="service-icon"><span className="code-accent">[UX]</span></div>
-          <h3>Modern Interfaces</h3>
-          <p>Provide fluid, user-centric frontends tailored to your needs.</p>
+
+        <div className="service-card div5">
+          <div className="service-icon">
+            <i className="fa-solid fa-cloud" />
+            <span className="code-accent">[OPS]</span>
+          </div>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>
+            CI/CD, observability and infrastructure that scales without the
+            drama.
+          </p>
         </div>
-        <div className="div6">
-          <div className="service-icon"><span className="code-accent">[ML]</span></div>
+
+        <div className="service-card div6">
+          <div className="service-icon">
+            <i className="fa-solid fa-robot" />
+            <span className="code-accent">[AI]</span>
+          </div>
           <h3>AI Integrations</h3>
-          <p>Utilize intelligent models to predict and automate tasks.</p>
+          <p>
+            Practical AI features that feel like magic, not a chatbot bolted
+            onto the sidebar.
+          </p>
         </div>
-        <div className="div7">
-          <div className="service-icon"><span className="code-accent">[NET]</span></div>
-          <h3>Global CDN</h3>
-          <p>Deliver assets at lightning speed to users anywhere globally.</p>
+
+        <div className="service-card div7">
+          <div className="service-icon">
+            <i className="fa-solid fa-gauge-high" />
+            <span className="code-accent">[QA]</span>
+          </div>
+          <h3>QA &amp; Performance</h3>
+          <p>
+            Accessibility, testing and performance budgets baked in from day
+            one.
+          </p>
         </div>
       </div>
     </article>
-  );
-};
+  )
+}

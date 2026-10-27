@@ -1,30 +1,86 @@
 #footer {
-  background-color: #04020a;
+  background-color: rgba(4, 2, 10, 0.72);
   color: var(--color-text-muted);
   text-align: center;
-  padding: 60px 0 40px 0;
-  font-family: var(--font-code); /* Make footer all code */
-  font-size: 1.1rem;
+  padding: 56px 0 40px 0;
+  font-family: var(--font-code);
+  font-size: 1.05rem;
   border-top: 1px solid var(--color-card-border);
   margin-top: 100px;
   position: relative;
   z-index: 2;
+  backdrop-filter: blur(10px);
 }
 
 #footer p {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   letter-spacing: 1px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.footer-brand .code-accent {
+  font-size: 1rem;
+  color: var(--color-secondary);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 #footer a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
-  margin: 0 15px;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+  margin: 0 12px;
 }
 
 #footer a:hover {
-  color: var(--color-secondary); /* Turn orange on hover */
+  color: var(--color-secondary);
+  text-shadow: 0 0 12px rgba(255, 106, 0, 0.45);
+}
+
+.footer-tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.footer-tech span {
+  padding: 5px 12px;
+  border: 1px solid rgba(155, 0, 255, 0.22);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  #footer {
+    padding: 40px 16px 32px 0;
+    margin-top: 60px;
+  }
+
+  .footer-brand {
+    font-size: 1.25rem;
+  }
 }

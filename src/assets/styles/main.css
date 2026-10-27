@@ -6,12 +6,14 @@
   /* Energetic Orange */
   --color-tertiary: #ff007f;
   /* Magenta/Pink (Accents only) */
+  --color-mint: #7dffc4;
+  /* Playful success accent */
 
   /* Deep Space Darkness */
   --color-bg: #07040e;
-  --color-card-bg: rgba(18, 12, 31, 0.6);
+  --color-card-bg: rgba(18, 12, 31, 0.62);
   /* Translucent dark purple base */
-  --color-card-border: rgba(155, 0, 255, 0.15);
+  --color-card-border: rgba(155, 0, 255, 0.18);
   /* Purple tinted borders */
 
   --color-text-main: #f8fafc;
@@ -20,6 +22,9 @@
   --font-modern: "Inter", sans-serif;
   --font-code: "VT323", monospace;
   /* Console / Terminal vibe */
+
+  --radius-lg: 20px;
+  --glow-soft: 0 0 40px rgba(255, 106, 0, 0.16);
 }
 
 * {
@@ -28,53 +33,83 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   min-height: 100%;
   font-family: var(--font-modern);
-  scroll-behavior: smooth;
   background-color: var(--color-bg);
   color: var(--color-text-main);
   overflow-x: hidden;
 }
 
-/* Enclosing the entire body content in a distinct box */
+::selection {
+  background: var(--color-secondary);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* Enclosing the entire body content in a distinct glowing box */
 #root {
   margin: 40px;
   min-height: calc(100vh - 80px);
   position: relative;
+  z-index: 1;
+  padding: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--glow-soft);
+}
 
-  /* The Glowing Border is the background of the root itself! */
-  background: linear-gradient(90deg,
-      var(--color-primary) 0%,
-      var(--color-secondary) 25%,
-      rgba(255, 106, 0, 0.9) 40%,
-      #ffffff 50%,
-      rgba(255, 106, 0, 0.9) 60%,
-      var(--color-secondary) 75%,
-      var(--color-primary) 100%);
+/* Animated energy border, masked to the 3px frame */
+#root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 3px;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 25%,
+    rgba(255, 106, 0, 0.9) 40%,
+    #ffffff 50%,
+    rgba(255, 106, 0, 0.9) 60%,
+    var(--color-secondary) 75%,
+    var(--color-primary) 100%
+  );
   background-size: 200% 100%;
   animation: energyFeed 6s linear infinite;
-
-  /* REDONDEADO: Solo esquinas superiores */
-  /* border-radius: 20px 20px 0 0; */
-  /* Pero como tenemos padding y clip-path, mejor usamos clip-path con curvas */
-
-  /* Eliminamos el clip-path anterior y usamos uno más simple con bordes redondeados arriba */
-  clip-path: inset(0 round 20px 20px 0 0);
-
-  padding: 3px;
-  filter: drop-shadow(0 0 15px rgba(255, 106, 0, 0.6));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .app-content {
   position: relative;
   z-index: 1;
   min-height: calc(100vh - 86px);
-  background-color: var(--color-bg);
+  padding: 40px 60px;
+}
 
-  /* Mismo redondeado solo en esquinas superiores */
-  clip-path: inset(0 round 20px 20px 0 0);
+#about,
+#services,
+#services-section,
+#contact {
+  scroll-margin-top: 96px;
 }
 
 @keyframes energyFeed {
@@ -89,7 +124,7 @@ body {
 
 /* Base glowing environment */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -104,7 +139,7 @@ body::before {
 
 /* Soft Dynamic Volumetric Orbs in Brand Colors */
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   top: -20%;
   left: -20%;
@@ -138,12 +173,6 @@ body::after {
   }
 }
 
-.app-content {
-  position: relative;
-  z-index: 1;
-  padding: 40px 60px;
-}
-
 h1,
 h2,
 h3,
@@ -161,4 +190,138 @@ h4 {
   letter-spacing: 1px;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    120deg,
+    var(--color-secondary) 0%,
+    var(--color-tertiary) 45%,
+    var(--color-primary) 85%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  height: 3px;
+  pointer-events: none;
+}
+
+.scroll-progress__bar {
+  display: block;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
+  box-shadow: 0 0 12px rgba(255, 106, 0, 0.65);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(125, 255, 196, 0.55);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(125, 255, 196, 0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatBadge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes floatChip {
+  0%,
+  100% {
+    transform: translate(var(--chip-x, 0), 0) rotate(var(--chip-rotate, 0deg));
+  }
+
+  50% {
+    transform: translate(var(--chip-x, 0), -10px) rotate(var(--chip-rotate, 0deg));
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1024px) {
+  #root {
+    margin: 24px;
+  }
+
+  .app-content {
+    padding: 28px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    margin: 12px;
+  }
+
+  .app-content {
+    padding: 20px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
