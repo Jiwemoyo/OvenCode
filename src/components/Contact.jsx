@@ -11,21 +11,21 @@ export const Contact = () => {
 
   return (
     <section id="contact">
-      <span className="code-accent contact-tag">{'> // START_A_PROJECT'}</span>
+      <span className="code-accent contact-tag">{'> // FIRE_UP_A_BUILD'}</span>
       <h2>
-        Let&apos;s build something{' '}
+        Let&apos;s fire up something{' '}
         <span className="gradient-text">playful.</span>
       </h2>
       <p className="contact-lead">
-        Tell us what you want to cook. We will bring the stack, the motion and
+        Tell us what you want to forge. We will bring the stack, the heat and
         the questionable amount of enthusiasm.
       </p>
 
       {sent ? (
         <div className="contact-success" role="status">
           <i className="fa-solid fa-check" />
-          <strong>Message queued!</strong>
-          <span>{'// demo mode — connect a backend to send it for real'}</span>
+          <strong>Order received!</strong>
+          <span>{'// demo mode — connect a backend to fire for real'}</span>
         </div>
       ) : (
         <form
@@ -68,17 +68,28 @@ export const Contact = () => {
           </div>
 
           <div className="form-group">
+            <label htmlFor="project">Project type:</label>
+            <select name="project" id="project" defaultValue="web-app">
+              <option value="website">Website</option>
+              <option value="web-app">Web App</option>
+              <option value="game">Game / Interactive</option>
+              <option value="api">API / Backend</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div className="form-group">
             <label htmlFor="message">Message:</label>
             <textarea
               name="message"
               id="message"
-              placeholder="Tell us what you want to cook..."
+              placeholder="Tell us what you want to forge..."
               rows="5"
               required
             />
           </div>
 
-          <input type="submit" id="submit" value="Send" data-magnetic />
+          <input type="submit" id="submit" value="Send to the oven" data-magnetic />
         </form>
       )}
 

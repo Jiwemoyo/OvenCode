@@ -1,14 +1,16 @@
 import '../assets/styles/hero.css'
 
 const TECH = [
+  'Websites',
+  'Web Apps',
+  'Games',
   'React',
   'Three.js',
   'GSAP',
-  'Vite',
   'Node',
   'AI',
-  'WebGL',
-  'Motion',
+  'Vite',
+  '1400°C',
 ]
 
 export const Hero = () => {
@@ -17,28 +19,28 @@ export const Hero = () => {
       <div className="content hero-copy">
         <span className="code-accent subtitle">{'> // OVEN_CODE_INIT'}</span>
         <h2>
-          We bake <span className="gradient-text">playful software.</span>
+          We forge <span className="gradient-text">playful software.</span>
         </h2>
         <p>
-          OvenCode is a creative software studio. We blend product thinking,
-          3D and buttery motion to ship web apps people actually want to play
-          with.
+          OvenCode is an industrial-grade software studio. We melt product
+          thinking, 3D and motion into websites, apps and games people actually
+          want to play with.
         </p>
 
         <div className="hero-actions">
           <a href="#contact" className="btn-primary" data-magnetic>
-            Start a project <span className="code-accent">_</span>
+            Start a build <span className="code-accent">_</span>
           </a>
           <a href="#services" className="btn-outline" data-magnetic>
-            Explore the lab
+            Enter the forge
           </a>
         </div>
 
         <div className="hero-meta">
           <span className="status-dot" />
-          <span>Available for new builds</span>
+          <span>Firing up new builds</span>
           <span className="hero-meta__sep">/</span>
-          <span>React · Three.js · GSAP</span>
+          <span>Web · Apps · Games</span>
         </div>
       </div>
 
@@ -48,15 +50,15 @@ export const Hero = () => {
             <span className="dot dot--red" />
             <span className="dot dot--yellow" />
             <span className="dot dot--green" />
-            <span className="terminal-title">ovencode@lab: ~/build</span>
+            <span className="terminal-title">ovencode@forge: ~/melt</span>
           </div>
 
           <div className="terminal-body">
             <div className="code-line">
               <span className="code-keyword">const</span>{' '}
-              <span className="code-var">idea</span> ={' '}
+              <span className="code-var">build</span> ={' '}
               <span className="code-keyword">await</span>{' '}
-              <span className="code-fn">oven.bake</span>({'{'}
+              <span className="code-fn">oven.forge</span>({'{'}
             </div>
             <div className="code-line">
               {'  '}stack: [<span className="code-string">&apos;react&apos;</span>,{' '}
@@ -64,14 +66,21 @@ export const Hero = () => {
               <span className="code-string">&apos;gsap&apos;</span>],
             </div>
             <div className="code-line">
-              {'  '}vibe: <span className="code-string">&apos;playful&apos;</span>,
+              {'  '}output: [<span className="code-string">&apos;web&apos;</span>,{' '}
+              <span className="code-string">&apos;apps&apos;</span>,{' '}
+              <span className="code-string">&apos;games&apos;</span>],
+            </div>
+            <div className="code-line">
+              {'  '}heat: <span className="code-number">1400</span>,
             </div>
             <div className="code-line">
               {'  '}ship: <span className="code-keyword">true</span>
             </div>
             <div className="code-line">{'})'}</div>
             <div className="code-line">
-              <span className="code-comment">{'// now make it unforgettable'}</span>
+              <span className="code-comment">
+                {'// tempered, tested, shipped'}
+              </span>
             </div>
             <div className="code-line">
               <span className="code-cursor">▌</span>
@@ -79,22 +88,22 @@ export const Hero = () => {
           </div>
 
           <div className="terminal-footer">
+            <span className="code-accent">heat: 1400°c</span>
             <span className="code-accent">build: passing</span>
-            <span className="code-accent">vibe: playful</span>
           </div>
         </div>
 
-        <span className="hero-badge hero-badge--react">
-          <i className="fa-brands fa-react" /> React
+        <span className="hero-badge hero-badge--intake">
+          <i className="fa-solid fa-arrow-right-to-bracket" /> Intake
         </span>
-        <span className="hero-badge hero-badge--three">
-          <i className="fa-solid fa-cube" /> Three.js
+        <span className="hero-badge hero-badge--melt">
+          <i className="fa-solid fa-fire" /> Melt
         </span>
-        <span className="hero-badge hero-badge--gsap">
-          <i className="fa-solid fa-bolt" /> GSAP
+        <span className="hero-badge hero-badge--forge">
+          <i className="fa-solid fa-hammer" /> Forge
         </span>
-        <span className="hero-badge hero-badge--mint">
-          <i className="fa-solid fa-wand-magic-sparkles" /> playful
+        <span className="hero-badge hero-badge--ship">
+          <i className="fa-solid fa-truck-fast" /> Ship
         </span>
       </div>
 

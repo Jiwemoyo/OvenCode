@@ -70,7 +70,7 @@
 .btn-primary {
   background-color: var(--color-primary);
   color: #fff;
-  box-shadow: 0 10px 30px rgba(155, 0, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(255, 90, 0, 0.35);
 }
 
 .btn-primary .code-accent {
@@ -80,8 +80,8 @@
 
 .btn-primary:hover {
   box-shadow:
-    0 15px 40px rgba(155, 0, 255, 0.5),
-    0 0 30px rgba(155, 0, 255, 0.25);
+    0 15px 40px rgba(255, 90, 0, 0.5),
+    0 0 30px rgba(255, 90, 0, 0.25);
 }
 
 .btn-outline {
@@ -137,13 +137,13 @@
   position: relative;
   z-index: 2;
   overflow: hidden;
-  border: 1px solid rgba(155, 0, 255, 0.3);
+  border: 1px solid rgba(255, 90, 0, 0.3);
   border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(22, 15, 38, 0.92), rgba(9, 5, 17, 0.95));
+    linear-gradient(180deg, rgba(34, 29, 24, 0.86), rgba(10, 8, 6, 0.92));
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.6),
-    0 0 45px rgba(155, 0, 255, 0.16);
+    0 0 45px rgba(255, 90, 0, 0.16);
   backdrop-filter: blur(12px);
   transform: rotate(-2deg);
   transform-style: preserve-3d;
@@ -156,6 +156,23 @@
   inset: -40%;
   background: radial-gradient(circle, rgba(255, 106, 0, 0.14), transparent 62%);
   pointer-events: none;
+}
+
+.hero-terminal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-hazard) 0 10px,
+    #17130f 10px 20px
+  );
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 4;
 }
 
 .terminal-bar {
@@ -200,7 +217,7 @@
   font-family: var(--font-code);
   font-size: 1.3rem;
   line-height: 1.55;
-  color: #cbb9ea;
+  color: #d8c9b8;
 }
 
 .code-line {
@@ -219,12 +236,16 @@
   color: var(--color-secondary);
 }
 
+.code-number {
+  color: var(--color-secondary);
+}
+
 .code-string {
   color: #ffd166;
 }
 
 .code-comment {
-  color: #6f6288;
+  color: #8a7c6c;
 }
 
 .code-cursor {
@@ -246,14 +267,19 @@
   position: absolute;
   z-index: 3;
   padding: 8px 14px;
-  border: 1px solid rgba(155, 0, 255, 0.32);
-  border-radius: 999px;
-  background-color: rgba(18, 12, 31, 0.88);
+  border: 1px solid rgba(255, 90, 0, 0.32);
+  border-left: 3px solid var(--color-hazard);
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, rgba(44, 38, 32, 0.94), rgba(18, 15, 12, 0.94));
   color: #fff;
   font-family: var(--font-code);
   font-size: 1rem;
-  letter-spacing: 1px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   will-change: transform;
 }
@@ -263,28 +289,29 @@
   color: var(--color-secondary);
 }
 
-.hero-badge--react {
+.hero-badge--intake {
   top: -6%;
-  right: 6%;
+  left: 6%;
   animation: floatBadge 5s ease-in-out infinite;
 }
 
-.hero-badge--three {
+.hero-badge--melt {
   top: -6%;
-  left: 6%;
+  right: 6%;
   animation: floatBadge 6.2s ease-in-out infinite 0.4s;
 }
 
-.hero-badge--gsap {
+.hero-badge--forge {
   bottom: -6%;
-  right: 6%;
+  left: 6%;
   animation: floatBadge 5.6s ease-in-out infinite 0.9s;
 }
 
-.hero-badge--mint {
+.hero-badge--ship {
   bottom: -6%;
-  left: 6%;
-  border-color: rgba(125, 255, 196, 0.4);
+  right: 6%;
+  border-color: rgba(94, 234, 212, 0.4);
+  border-left-color: var(--color-mint);
   color: var(--color-mint);
   animation: floatBadge 6.8s ease-in-out infinite 0.2s;
 }
@@ -294,8 +321,8 @@
   margin-top: 20px;
   padding: 14px 0;
   overflow: hidden;
-  border-top: 1px solid rgba(155, 0, 255, 0.16);
-  border-bottom: 1px solid rgba(155, 0, 255, 0.16);
+  border-top: 1px solid rgba(255, 90, 0, 0.16);
+  border-bottom: 1px solid rgba(255, 90, 0, 0.16);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
@@ -317,7 +344,7 @@
 }
 
 .marquee-track span::before {
-  content: "✦";
+  content: "//";
   margin-right: 2.5rem;
   color: var(--color-secondary);
 }
@@ -379,8 +406,8 @@
     min-height: 320px;
   }
 
-  .hero-badge--three,
-  .hero-badge--mint {
+  .hero-badge--melt,
+  .hero-badge--ship {
     display: none;
   }
 

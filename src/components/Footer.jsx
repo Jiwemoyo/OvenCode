@@ -13,10 +13,12 @@ export const Footer = () => {
         <a href="#contact">Contact</a>
       </div>
       <div className="footer-tech">
+        <span>Websites</span>
+        <span>Apps</span>
+        <span>Games</span>
         <span>React</span>
         <span>Three.js</span>
         <span>GSAP</span>
-        <span>Vite</span>
       </div>
     </footer>
   )

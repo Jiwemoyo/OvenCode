@@ -1,30 +1,33 @@
 :root {
-  /* OvenCode Core Identity: Modern SaaS + Retro Code */
-  --color-primary: #9b00ff;
-  /* Brand Purple */
-  --color-secondary: #ff6a00;
-  /* Energetic Orange */
-  --color-tertiary: #ff007f;
-  /* Magenta/Pink (Accents only) */
-  --color-mint: #7dffc4;
-  /* Playful success accent */
+  /* OvenCode Core Identity: Industrial Foundry + Retro Code */
+  --color-primary: #ff5a00;
+  /* Molten Orange */
+  --color-secondary: #ffb020;
+  /* Hot Amber */
+  --color-tertiary: #c2410c;
+  /* Rust Red */
+  --color-mint: #5eead4;
+  /* Code Cyan */
 
-  /* Deep Space Darkness */
-  --color-bg: #07040e;
-  --color-card-bg: rgba(18, 12, 31, 0.62);
-  /* Translucent dark purple base */
-  --color-card-border: rgba(155, 0, 255, 0.18);
-  /* Purple tinted borders */
+  /* Foundry Darkness */
+  --color-bg: #0a0806;
+  --color-card-bg: rgba(26, 22, 19, 0.66);
+  /* Translucent dark steel */
+  --color-card-border: rgba(255, 90, 0, 0.18);
+  /* Heat-tinted borders */
+  --color-steel: #3a4048;
+  --color-rust: #8a3b1e;
+  --color-hazard: #f5c542;
 
-  --color-text-main: #f8fafc;
-  --color-text-muted: #94a3b8;
+  --color-text-main: #f5f1ea;
+  --color-text-muted: #a8a29a;
 
   --font-modern: "Inter", sans-serif;
   --font-code: "VT323", monospace;
   /* Console / Terminal vibe */
 
   --radius-lg: 20px;
-  --glow-soft: 0 0 40px rgba(255, 106, 0, 0.16);
+  --glow-soft: 0 0 40px rgba(255, 90, 0, 0.18);
 }
 
 * {
@@ -43,7 +46,7 @@ body {
   font-family: var(--font-modern);
   background-color: var(--color-bg);
   color: var(--color-text-main);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -130,14 +133,14 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 176, 32, 0.055) 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: center center;
   z-index: -2;
   pointer-events: none;
 }
 
-/* Soft Dynamic Volumetric Orbs in Brand Colors */
+/* Soft foundry heat haze and cool steel rim light */
 body::after {
   content: "";
   position: fixed;
@@ -146,9 +149,10 @@ body::after {
   right: -20%;
   bottom: -20%;
   background:
-    radial-gradient(circle at 30% 20%, rgba(155, 0, 255, 0.3) 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(255, 106, 0, 0.2) 0%, transparent 60%),
-    radial-gradient(circle at 10% 80%, rgba(255, 0, 127, 0.15) 0%, transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(255, 90, 0, 0.2) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 176, 32, 0.14) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(194, 65, 12, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 10%, rgba(74, 141, 184, 0.1) 0%, transparent 45%);
   filter: blur(100px);
   z-index: -1;
   pointer-events: none;
@@ -238,7 +242,7 @@ h4 {
     var(--color-secondary),
     var(--color-tertiary)
   );
-  box-shadow: 0 0 12px rgba(255, 106, 0, 0.65);
+  box-shadow: 0 0 12px rgba(255, 90, 0, 0.65);
 }
 
 @keyframes blink {
@@ -250,11 +254,11 @@ h4 {
 @keyframes pulseDot {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(125, 255, 196, 0.55);
+    box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.55);
   }
 
   50% {
-    box-shadow: 0 0 0 7px rgba(125, 255, 196, 0);
+    box-shadow: 0 0 0 7px rgba(94, 234, 212, 0);
   }
 }
 

@@ -8,8 +8,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(155, 0, 255, 0.16) 0%,
-    rgba(255, 106, 0, 0.08) 38%,
+    rgba(255, 90, 0, 0.18) 0%,
+    rgba(255, 176, 32, 0.1) 38%,
     transparent 68%
   );
   pointer-events: none;
